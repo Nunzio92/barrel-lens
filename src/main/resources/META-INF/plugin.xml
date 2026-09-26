@@ -1,0 +1,34 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.barrellens.plugin</id>
+    <name>Barrel Lens</name>
+    <!-- TODO before publishing: replace with your real name/email/site -->
+    <vendor email="you@example.com" url="https://example.com">Your Name</vendor>
+    <description><![CDATA[
+        <p>Highlights TypeScript declarations that are part of a module's public API,
+        i.e. re-exported through a barrel (index.ts) file, so it's obvious at a glance
+        what is internal vs. externally consumable in a modular monorepo.</p>
+        <p>No annotations or extra developer action required - the plugin resolves star
+        exports, named exports, and aliased/type-only re-exports through nested barrel
+        directories, and adds a clickable gutter icon that jumps straight to the
+        re-export line.</p>
+    ]]></description>
+    <change-notes><![CDATA[
+        <p><b>0.1.0</b></p>
+        <ul>
+            <li>Gutter icon on functions, const/let bindings, type aliases and interfaces
+            that are re-exported through a barrel (index.ts/index.tsx) file.</li>
+            <li>Click the icon to jump to the re-export line in the barrel.</li>
+        </ul>
+    ]]></change-notes>
+
+    <!-- WebStorm is not a recognized "module" on its own; a plugin that only depends on
+         com.intellij.modules.platform is treated as a legacy plugin and won't load unless
+         it also declares the JavaScript module it actually needs. -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>JavaScript</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <annotator language="JavaScript" implementationClass="com.barrellens.BarrelExportAnnotator"/>
+    </extensions>
+</idea-plugin>
