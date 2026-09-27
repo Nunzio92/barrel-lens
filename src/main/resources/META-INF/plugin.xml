@@ -2,8 +2,7 @@
 <idea-plugin>
     <id>com.barrellens.plugin</id>
     <name>Barrel Lens</name>
-    <!-- TODO before publishing: replace with your real name/email/site -->
-    <vendor email="you@example.com" url="https://example.com">Your Name</vendor>
+    <vendor email="nunziozappulla@gmail.com">Nunzio Zappulla</vendor>
     <description><![CDATA[
         <p>Highlights TypeScript declarations that are part of a module's public API,
         i.e. re-exported through a barrel (index.ts) file, so it's obvious at a glance
